@@ -1,0 +1,23 @@
+[project]
+name = "fec_parser"
+version = "1.0.0"
+authors = [
+  { name="ETCLD", email="si@etcld.fr" },
+]
+description = "A small package to extract FEC (Fichier d'Ecriture Comptables) data to an income statement"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+
+[project.urls]
+Homepage = "https://github.com/ETCLD/fec_parser"
+Issues = "https://github.com/ETCLD/fec_parser/issues"
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
