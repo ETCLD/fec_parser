@@ -21,6 +21,13 @@ fec_ecriture_specs = [
     {"name": "Credit", "attr": "credit", "null": False},
 ]
 
+@staticmethod
+def _get(line, field):
+    """Returns value from FEC (case insensitive)"""
+    if value := line.get(field):
+        return value
+    return next((v for k, v in line.items() if k.lower() == field.lower()), "")
+
 
 @dataclass
 class FECEcriture:
@@ -46,11 +53,11 @@ class FECEcriture:
             field = spec["name"]
             attr_name = spec["attr"]
 
-            field_value = ecriture.get(field, "")
+            field_value = _get(ecriture, field)
 
             if field in ["Debit", "Credit"]:
-                value = ecriture.get("Montant")
-                sens = ecriture.get("Sens")
+                value = _get(ecriture, "Montant")
+                sens = _get(ecriture, "Sens")
                 if value and sens:
                     field_value = value if sens == field[0] else "0"
                 field_value = Decimal(field_value.replace(",", "."))

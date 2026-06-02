@@ -11,10 +11,10 @@ pip install fec-parser
 
 ```python
 
-from fec_parser.analyser import FECAnalyzer
+from fec_parser.analyzer import FECAnalyzer
 
 fec_analyzer = FECAnalyzer(pc_definition_filepath="fichier_definition.csv")
-fec_analyzer.parse(open("mon_fec.csv"))
+fec_analyzer.parse(open("mon_fec.csv", "rb"))
 
 print(fec_analyzer.get_compte_resultat())
 print(fec_analyzer.get_indicateurs())
